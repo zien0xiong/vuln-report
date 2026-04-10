@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    container_name: cnvd_laravel_app
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ../dcat-admin-2.0:/var/www/dcat-admin-2.0
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: dcat
+      DB_USERNAME: dcat
+      DB_PASSWORD: dcat123
+    depends_on:
+      - db
+    command: >
+      sh -lc "composer install --no-interaction --prefer-dist &&
+              php artisan key:generate --force &&
+              php artisan migrate --force || true &&
+              php artisan serve --host=0.0.0.0 --port=8000"
+    ports:
+      - "18100:8000"
+
+  db:
+    image: mysql:8.0
+    container_name: cnvd_laravel_db
+    environment:
+      MYSQL_DATABASE: dcat
+      MYSQL_USER: dcat
+      MYSQL_PASSWORD: dcat123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3307:3306"

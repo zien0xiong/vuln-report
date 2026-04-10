@@ -1,0 +1,27 @@
+# CNVD 报告生成器配置示例
+llm:
+  api_key: "your_api_key_here"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qwen-max"
+
+deployment:
+  default_port: 18100
+  timeout_seconds: 120
+  codex_exec_timeout_seconds: 7200
+  prefer_docker: true
+  docker_only: true
+  sqlmap_in_container: true
+  force_download_url: "https://github.com/z-song/laravel-admin/archive/refs/tags/v1.8.19.zip"
+  force_repository_url: "https://github.com/z-song/laravel-admin"
+  force_version: "v1.8.19"
+  docker_registry_strategy: "cn_mirror_first"
+  health_check_interval: 2
+
+logging:
+  level: "INFO"
+  max_file_size: "10MB"
+  backup_count: 5
+
+output:
+  dir: "workspace/output"
+  template: "templates/cnvd_template.docx"
