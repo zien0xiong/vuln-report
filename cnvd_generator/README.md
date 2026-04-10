@@ -44,12 +44,6 @@ pip install -r requirements.txt
 
 编辑 `config.yaml` 文件，配置你的API密钥：
 
-```yaml
-llm:
-  api_key: "sk-Q37wem5A0fk3V9HSvE1egeNw932sQqYvDxxBvyKFKlGVpTfy"
-  base_url: "https://api.moonshot.cn/v1"
-  model: "kimi-k2.5"
-```
 
 或者将配置文件放在用户目录下 `~/.cnvd_generator/config.yaml`。
 
