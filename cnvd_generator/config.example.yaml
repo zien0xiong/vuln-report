@@ -12,9 +12,10 @@ deployment:
   prefer_docker: true
   docker_only: true
   sqlmap_in_container: true
-  force_download_url: "https://github.com/z-song/laravel-admin/archive/refs/tags/v1.8.19.zip"
-  force_repository_url: "https://github.com/z-song/laravel-admin"
-  force_version: "v1.8.19"
+  # 通用模式建议留空：优先使用报告解析/GitHub检索结果
+  force_download_url: ""
+  force_repository_url: ""
+  force_version: ""
   docker_registry_strategy: "cn_mirror_first"
   health_check_interval: 2
 
@@ -55,3 +56,6 @@ network:
 output:
   dir: "workspace/output"
   template: "templates/cnvd_template.docx"
+  # OLE 代码文件嵌入：Windows + Office 环境建议 true
+  # macOS/Linux 建议 false（避免因 COM 不可用导致 generate 失败）
+  ole_must_succeed: true
