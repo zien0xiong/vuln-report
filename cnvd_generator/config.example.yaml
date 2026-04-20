@@ -1,0 +1,57 @@
+# CNVD 报告生成器配置示例
+llm:
+  api_key: "your_api_key_here"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qwen-max"
+  vision_model: "qwen-vl-max"
+
+deployment:
+  default_port: 18100
+  timeout_seconds: 120
+  codex_exec_timeout_seconds: 7200
+  prefer_docker: true
+  docker_only: true
+  sqlmap_in_container: true
+  force_download_url: "https://github.com/z-song/laravel-admin/archive/refs/tags/v1.8.19.zip"
+  force_repository_url: "https://github.com/z-song/laravel-admin"
+  force_version: "v1.8.19"
+  docker_registry_strategy: "cn_mirror_first"
+  health_check_interval: 2
+
+sqlmap:
+  timeout_seconds: 900
+  codex_timeout_seconds: 2400
+  route_probe_timeout_seconds: 12
+  adaptive:
+    max_attempts: 1
+    retry_only_if_strict_flags: false
+    min_time_sec: 5
+    min_timeout_seconds: 20
+    min_retries: 2
+    add_random_agent: true
+  strategy:
+    command_policy: "reference_only"
+    success_rule: "parameter_and_evidence"
+    invalid_json_retry_once: true
+  auth:
+    login_path: "/admin/auth/login"
+    username: "admin"
+    password: "admin"
+    username_field: "username"
+    password_field: "password"
+    csrf_field: "_token"
+
+logging:
+  level: "INFO"
+  max_file_size: "10MB"
+  backup_count: 5
+
+network:
+  # 需要代理时启用；可填写 127.0.0.1:7890 或 http://127.0.0.1:7890
+  http_proxy: ""
+  https_proxy: ""
+  no_proxy: "127.0.0.1,localhost"
+
+output:
+  dir: "workspace/output"
+  template: "templates/cnvd_template.docx"

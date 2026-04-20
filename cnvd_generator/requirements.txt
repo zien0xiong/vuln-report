@@ -1,0 +1,36 @@
+# CNVD Generator Requirements
+
+# LLM API
+openai>=1.0.0
+
+# Word文档处理
+python-docx>=0.8.11
+
+# HTTP请求
+requests>=2.28.0
+
+# HTML解析
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+
+# GitHub API
+pygithub>=1.59.0
+
+# 进程管理
+psutil>=5.9.0
+
+# Windows COM接口（OLE嵌入）
+pywin32>=306; platform_system=="Windows"
+
+# 截图处理
+pillow>=9.0.0
+
+# YAML配置
+pyyaml>=6.0
+
+# 配置
+pyyaml>=6.0
+
+# 工具
+click>=8.0.0
+colorama>=0.4.4

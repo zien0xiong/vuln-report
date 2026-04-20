@@ -1,0 +1,22 @@
+# 用户指定不上传目录
+cnvd报告/
+可信代码库报告/
+json-findings/
+
+# 运行产物
+workspace/
+cnvd_generator/workspace/
+
+\#!*/
+
+# Python 缓存
+__pycache__/
+*/__pycache__/
+*.pyc
+
+# 本地敏感配置
+cnvd_generator/config.yaml
+
+# 临时文件
+*.log
+*.tmp
